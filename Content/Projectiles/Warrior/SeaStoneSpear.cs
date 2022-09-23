@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace tRoot.Content.Projectiles.Warrior
 {
-    public class SeaStoneSpear : ModProjectile
+    internal class SeaStoneSpear : ModProjectile
     {
         //定义矛射弹的射程。这些是可重写的属性，以应对您希望使一个类继承自这个类。
         protected virtual float HoldoutRangeMin => 40f;
@@ -14,7 +14,6 @@ namespace tRoot.Content.Projectiles.Warrior
 
         public override void SetStaticDefaults()
         {
-            DisplayName.AddTranslation(7, "海石长矛");
         }
 
         public override void SetDefaults()
@@ -73,18 +72,15 @@ namespace tRoot.Content.Projectiles.Warrior
 
             //避免在专用服务器上产生灰尘
             // Avoid spawning dusts on dedicated servers
-            if (!Main.dedServ)
-            {
-                // These dusts are added later, for the 'ExampleMod' effect
-                //if (Main.rand.NextBool(3))
-                //{
-                //	Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<MetalSpikesDust>(), Projectile.velocity.X * 2f, Projectile.velocity.Y * 2f, Alpha: 128, Scale: 1.2f);
-                //}
+            // These dusts are added later, for the 'ExampleMod' effect
+            //if (Main.rand.NextBool(3))
+            //{
+            //	Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<MetalSpikesDust>(), Projectile.velocity.X * 2f, Projectile.velocity.Y * 2f, Alpha: 128, Scale: 1.2f);
+            //}
 
-                if (Main.rand.NextBool(5))
-                {
-                    Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 16, 0, 0, Alpha: 128, new Color(8, 72, 121), Scale: 0.8f);
-                }
+            if (Main.rand.NextBool(5))
+            {
+                Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 16, 0, 0, Alpha: 128, new Color(8, 72, 121), Scale: 0.8f);
             }
 
             return false; // Don't execute vanilla AI.

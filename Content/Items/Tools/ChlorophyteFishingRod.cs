@@ -119,11 +119,9 @@ namespace tRoot.Content.Items.Tools
         public override void AI()
         {
             // 始终确保图形相关代码不会通过此检查在专用服务器( dedicated servers )上运行。
-            if (!Main.dedServ)
-            {
-                // 根据线条的颜色创建一些灯光。
-                Lighting.AddLight(Projectile.Center, FishingLineColor.ToVector3());
-            }
+            //但是addlight已经排除了dedServ 也就是 netMode==2 所以这里写是没有意义的。粒子也遵循同样道理
+            //if (!Main.dedServ)
+            Lighting.AddLight(Projectile.Center, FishingLineColor.ToVector3());
         }
 
 

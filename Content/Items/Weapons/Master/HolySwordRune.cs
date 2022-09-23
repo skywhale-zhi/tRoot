@@ -29,7 +29,7 @@ namespace tRoot.Content.Items.Weapons.Master
 			Item.autoReuse = true;
 			Item.UseSound = SoundID.Item8;
 			Item.DamageType = DamageClass.Magic;
-			Item.damage = 45;
+			Item.damage = 75;
 			Item.crit = 10;
 			Item.knockBack = 5f;
 			Item.noMelee = true;

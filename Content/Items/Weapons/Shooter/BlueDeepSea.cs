@@ -25,15 +25,15 @@ namespace tRoot.Content.Items.Weapons.Shooter
             Item.rare = ItemRarityID.Yellow;
 
             // Use Properties
-            Item.useTime = 5;
-            Item.useAnimation = 5;
+            Item.useTime = 7;
+            Item.useAnimation = 7;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.autoReuse = true;
             Item.UseSound = SoundID.Item11;
 
             // Weapon Properties
             Item.DamageType = DamageClass.Ranged;
-            Item.damage = 38;
+            Item.damage = 53;
             Item.knockBack = 1f;
             Item.noMelee = true;
 
@@ -49,9 +49,10 @@ namespace tRoot.Content.Items.Weapons.Shooter
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.FlintlockPistol, 1)
                 .AddIngredient(ItemID.Handgun, 1)
+                .AddIngredient(ItemID.Uzi, 1)
                 .AddIngredient(ItemID.ShroomiteBar, 12)
+                .AddIngredient(ItemID.GlowingMushroom, 100)
                 .AddTile(TileID.MythrilAnvil)
                 .Register();
         }

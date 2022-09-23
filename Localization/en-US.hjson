@@ -1,7 +1,11 @@
 Mods: {
 	tRoot: {
+
+
+
 		NPCName: {
 			Scientist: Scientist
+			XZ503 : Robot
 		}
 
 		ItemTooltip: {
@@ -20,11 +24,11 @@ Mods: {
 			BlueDeepSea:
 				'''
 				40% chance to not consume ammunition
-				Broken ammunition explodes into mushrooms
+				The mushroom will burst when the ammunition is unstable
 				'''
 			StarDestroyer:
 				'''
-				Shoot multiple arrows
+				Convert a wooden arrow into a lightning bolt, Shoot multiple arrows
 				'''
 			WillowVineBow:
 				'''
@@ -33,6 +37,36 @@ Mods: {
 			BanDianStarSword:
 				'''
 				The green falling star smashed the enemy
+				'''
+			ChlorophyteWhip:
+				'''
+				Increase 10 points of damage to summoned minions
+				The minions you summon will focus on attacking the marked enemies
+				Hit the enemy to obtain foliage and root colonization
+				The leafy root colony will cause an additional+10% chance to critically hit when the summoner strikes the enemy, and steal some HP for the player，steal more HP when critically hitting
+				'''
+			ChlorophyteFlail:
+				'''
+				Right click to automatically throw, but slightly reduce damage
+				Spits out a deadly spore cloud, and releases a leafy green crystal arrow that ignores a large number of invincible enemy frames
+				'''
+			FlaskofMixedToxin:
+				'''
+				Melee and Whip attacks inflict enemies with MixedToxinⅠ
+				'''
+			FlaskofMixedToxinⅠ:
+				'''
+				Melee and Whip attacks inflict enemies with MixedToxinⅠ
+				Reduces the enemy's defense and causes damage of MixedToxin Ⅰ, which can be stacked with other poison bottles
+				'''
+			BufferBalancingAgentⅡ:
+				'''
+				It can balance the incompatible parts of most materials and be used as an additive to create more powerful materials
+				'''
+			LuminiteBlade:
+				'''
+				Ignore the enemy's massive defense and quickly tear your enemy apart
+				Cause more damage to enemies with low defence
 				'''
 		}
 		
@@ -46,14 +80,23 @@ Mods: {
 		
 		BuffName: {
 			MiniFlowerBuff: "Mini Flower"
+			WeaponImbueMixedToxinⅠ: "Weapon Imbue Mixed Toxin Ⅰ"
+			MixedToxinⅠ: "Mixed Toxin Ⅰ"
+			LuminiteBladeBuff: "Luminite Blade !"
+			ChlorophyteWhipDebuff: "Chlorophyte Whip Debuff"
 		}
 		
 		BuffDescription: {
 			MiniFlowerBuff: "Flowers surround you"
+			WeaponImbueMixedToxinⅠ: "Melee attacks inflict MixedToxin Ⅰ on your targets"
+			MixedToxinⅠ: "A variety of putrefactive toxins are mixed in an ingenious way"
+			LuminiteBladeBuff: "Peel and remove bone"
+			ChlorophyteWhipDebuff: "Increase the damage and critical hit of servants, and steal HP"
 		}
 		
 		Bestiary: {
 			Scientist: A scientist from a mysterious country came here unexpectedly because of his invention and debugging mistakes, and has been looking for ways to leave.
+			XZ503: The robot made by scientists is used to detect and collect information materials.
 		}
 		
 		TownNPCMood: {
@@ -73,6 +116,23 @@ Mods: {
 				DislikeNPC: "I don't like this neighbor, {NPCName} will steal my business"
 				HateNPC: "Can I throw {NPCName} into the sea to feed sharks? Well, no, I did take a lot of bait from him..."
 			}
+
+			XZ503: {
+				Content: beep ------.
+				NoHome: No maintainable sites were detected.
+				LoveSpace: Du ----- This environment is very suitable for collecting information.
+				FarFromHome: too far away from the maintenance site.
+				DislikeCrowded: Congestion detected.
+				HateCrowded: Overcrowded.
+				LikeBome: "{BiomeName} is good for collecting materials."
+				LoveBiome: "{BiomeName} is very suitable for collecting materials."
+				DislikeBiome: "{BiomeName} is not suitable for collecting materials."
+				HateBome: "{BiomeName} is very unsuitable for collecting materials."
+				LikeNPC: "I like {NPCName}, which is convenient for submitting materials."
+				LoveNPC: "I like {NPCName}, which is very convenient for submitting materials."
+				DislikeNPC: "I don't like {NPCName}. Excessive checking makes it difficult for me to deal with things."
+				HateNPC: "I don't like {NPCName} in particular, because electromagnetic interference has damaged some of my devices."
+			}
 		}
 
 		MessageInfo: {
@@ -86,8 +146,23 @@ Mods: {
 				StandardDialogue4 : "You can buy many things from me"
 				StandardDialogue5 : "Welcome"
 				StandardDialogue6 : "Although I am a scientist, I can only sell things to make a living"
+				StandardDialogue7 : "You can buy things from my robot XZ503. It doesn't bite"
+				StandardDialogue8 : "My robot sometimes gives out bugs or garbled codes, but fortunately, the collection system and trading system are not too bad. Don't mind. What do you think I can make from the garbage?"
 				RareDialogue1 : "As the first npc of root mod, I have the honor to talk to you"
 				RareDialogue2 : "The author has made my painting as beautiful as possible....."
+			}
+
+			XZ503: {
+				StandardDialogue1 : "010010111000101101"
+				StandardDialogue2 : "***** **** *** ** *"
+				StandardDialogue3 : "* ** *** **** *****"
+				StandardDialogue4 : "�g�a�r�b�l�e�d��c�o�d�e�"
+				StandardDialogue5 : "After information collection, you can talk normally"
+				StandardDialogue6 : "Beep ----- Loading"
+				StandardDialogue7 : "Maybe I have an emotional module"
+				StandardDialogue8: "Maybe you can get some materials I collected from me, but because of Cohen's exchange terms, you need to pay"
+				StandardDialogue9: "It is detected that the force from the Calamity interferes. Maybe you can get some disaster materials I collected from me, but because of Koarn's exchange rules, you need to pay money."
+				StandardDialogue10: "Some rare materials need to be collected and recorded repeatedly. For example, the Terraprisma may require you to fight the Empress of Light 6 times before I can collect enough information to copy"
 			}
 		}
 	}

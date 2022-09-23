@@ -2,6 +2,9 @@
 using tRoot.Content.NPCs.Person_Pets;
 using System.IO;
 using Terraria;
+using Terraria.ModLoader;
+using Terraria.ID;
+using tRoot.Content.Projectiles.Warrior;
 
 namespace tRoot
 {

@@ -2,8 +2,8 @@ Mods: {
 	tRoot: {
 		NPCName: {			
 			Scientist: 科学家
+			XZ503: 机器人
 		}
-
 		ItemTooltip: {
 			BanDianPickaxe:
 				'''
@@ -20,11 +20,12 @@ Mods: {
 			BlueDeepSea:
 				'''
 				40%几率不消耗弹药
-				碎裂的弹药炸裂出蘑菇
+				蘑菇会在弹药不稳定的时候炸裂开来
 				'''
 			StarDestroyer:
 				'''
-				射出多支箭
+				将木箭转化成闪电矢，射出多支箭
+				箭碎裂释放电浆，对周围敌人造成次级伤害
 				'''
 			WillowVineBow:
 				'''
@@ -36,10 +37,50 @@ Mods: {
 				'''
 			ChlorophyteWhip:
 				'''
-				使召唤物仆从增加5点伤害
+				使召唤物仆从增加10点伤害
 				你召唤的仆从将集中打击被标记的敌人
-				打击敌人以获得叶绿根殖
-				叶绿根殖会在召唤物打击敌人时给玩家窃取些许血量
+				打击敌人以获得短暂的叶绿根殖
+				叶绿根殖会在召唤物打击敌人时额外+10%概率造成暴击，并给玩家窃取些许血量，暴击时吸更多的血
+				'''
+			ChlorophyteFlail:
+				'''
+				右键自动掷出，但略微降低伤害
+				喷吐致命孢子云，并释放出忽略敌人大量无敌帧的叶绿水晶矢
+				'''
+			FlaskofMixedToxinⅠ:
+				'''
+				近战和鞭子攻击会造成调和毒素 Ⅰ
+				降低敌人防御力并造成调和毒素 Ⅰ 伤害，可与其他毒液瓶叠加
+				'''
+			BufferBalancingAgentⅠ:
+				'''
+				能平衡多数材料不相容的部分，用作添加剂来创造更强大的材料
+				'''
+			BufferBalancingAgentⅡ:
+				'''
+				能平衡多数材料不相容的部分，用作添加剂来创造更强大的材料
+				'''
+			LuminiteBlade:
+				'''
+				忽略敌人大量防御，将你的敌人快速撕裂
+				敌人受到的减益越猛烈，额外的伤害越多
+				'''
+			MixedToxinⅠArrow:
+				'''
+				有毒的融滴从箭尾落下，对目标施加调和毒素 Ⅰ
+				'''
+			MixedToxinⅠBullet:
+				'''
+				撞击时释放毒气溶胶，对目标施加调和毒素 Ⅰ
+				'''
+			BloodySpinningSpear:
+				'''
+				让你的敌人鲜血淋漓
+				'''
+			BloodDrawingLance:
+				'''
+				黏附于敌人身上吸血并治疗玩家
+				一定程度抵抗敌人的伤害减免
 				'''
 		}
 		
@@ -62,6 +103,20 @@ Mods: {
 			BanDianStarSword: "斑淀星剑"
 			MiniFlowerItem: "花芽"
 			ChlorophyteWhip: "翠鞭"
+			BlueDeepSea: "蔚蓝深海"
+			ChlorophyteFlail: "绿荆棘"
+			FlaskofMixedToxinⅠ: "混调毒素瓶 Ⅰ"
+			BufferBalancingAgentⅠ: "缓冲调和剂 Ⅰ"
+			BufferBalancingAgentⅡ: "缓冲调和剂 Ⅱ"
+			LuminiteBlade: "夜明之锋"
+			IceFireArrow: "冰火箭"
+			MixedToxinⅠArrow: "混调毒素 Ⅰ 箭矢"
+			MixedToxinⅠBullet: "混调毒素 Ⅰ 子弹"
+			JadeSpiralBullet: "螺玉弹"
+			BrightRedStone: "璀璨红石"
+			BloodySpinningSpear: "血钻长矛"
+			SeaStoneSpear: "海石长矛"
+			BloodDrawingLance: "汲血长枪"
 		}
 		
 
@@ -76,40 +131,73 @@ Mods: {
 			BlueDeepSea: "蔚蓝深海"
 			MiniFlowerProjectile: "迷你小花"
 			ChlorophyteWhipProjectile: "翠鞭节"
+			ChlorophyteFlailProjectile: "叶绿链球"
+			LuminiteBladeProjectile: "夜明之锋"
+			MixedToxinⅠArrowProjectile: "混调毒素 Ⅰ 箭矢"
+			MixedToxinⅠBulletProjectile: "混调毒素 Ⅰ 子弹"
+			JadeSpiralBullet: "螺玉弹"
+			JadeSpiralBulletFragment: "螺玉碎屑"
+			SeaStoneSpear: "海石长矛"
+			BloodySpinningSpearProjectile: "血钻长矛"
 		}
 		
 
 		BuffName: {
 			MiniFlowerBuff: "迷你小花"
+			WeaponImbueMixedToxinⅠ: "武器灌注：调和毒素Ⅰ"
+			MixedToxinⅠ: "调和毒素 Ⅰ"
+			LuminiteBladeBuff: "夜明之锋"
+			ChlorophyteWhipDebuff: "叶绿根殖"
 		}
 		
 
 		BuffDescription: {
 			MiniFlowerBuff: "花花围绕着你"
+			WeaponImbueMixedToxinⅠ: "近战和鞭子攻击会对你的目标施放调和毒素 Ⅰ"
+			MixedToxinⅠ: "多种腐败毒素以巧妙的方式混合而成"
+			LuminiteBladeBuff: "将你的敌人拆解干净！"
+			ChlorophyteWhipDebuff: "增幅仆从的伤害和暴击，并窃取生命值"
 		}
 		
 
 		Bestiary: {
-			Scientist: 一个来自神秘国度的科学家，因他的发明调试错误而意外的来到这里，一直在寻找离开的方法.
+			Scientist: 一个来自神秘国度的科学家，因他的发明调试错误而意外的来到这里，一直在寻找离开的方法。
+			XZ503: 科学家做的机器人，用于探测收集信息材料。
 		}
 		
 
 		TownNPCMood: {
 			Scientist: {
-				Content: 现在挺好的，我说真的
+				Content: 现在挺好的，我说真的。
 				NoHome: 我无家可归，无家可归。。。。。
-				LoveSpace: 这地方太棒了，谢谢你，以后找我买东西我会给你打折哦
-				FarFromHome: 要是在以前，我能瞬移回去，现在只能徒步走了
-				DislikeCrowded: 人多了点，万一有人顺走我的东西怎办
-				HateCrowded: 人太多了，很不喜欢
-				LikeBiome: "{BiomeName}是个好地方"
-				LoveBiome: "{BiomeName}实在是太棒了，所有任务顺利执行"
-				DislikeBiome: "{BiomeName}会扰乱我的信息搜集和测试"
-				HateBiome: "就是这{BiomeName}，我的实验全毁了"
-				LikeNPC: "我喜欢{NPCName}，他什么都知道，能帮我很多"
+				LoveSpace: 这地方太棒了，谢谢你，以后找我买东西我会给你打折哦。
+				FarFromHome: 要是在以前，我能瞬移回去，现在只能徒步走了。
+				DislikeCrowded: 人多了点，万一有人顺走我的东西怎办。
+				HateCrowded: 人太多了，很不喜欢。
+				LikeBiome: "{BiomeName}是个好地方。"
+				LoveBiome: "{BiomeName}实在是太棒了，所有任务顺利执行。"
+				DislikeBiome: "{BiomeName}会扰乱我的信息搜集和测试。"
+				HateBiome: "就是这{BiomeName}，我的实验全毁了。"
+				LikeNPC: "我喜欢{NPCName}，他什么都知道，能帮我很多。"
 				LoveNPC: "Do you think {NPCName} notices me?"
-				DislikeNPC: "我不喜欢这个邻居，{NPCName}会抢走我的生意的"
+				DislikeNPC: "我不喜欢这个邻居，{NPCName}会抢走我的生意的。"
 				HateNPC: "我能把{NPCName}丢海里喂鲨鱼吗？好吧不能，我确实从他那顺走不少鱼饵。。。。"
+			}
+			XZ503: {
+				Content: 嘟-----。
+				NoHome: 未检测到可维护场所。
+				LoveSpace: 嘟-----此环境非常适合搜集信息。
+				FarFromHome: 离维护场所过远。
+				DislikeCrowded: 检测到拥挤。
+				HateCrowded: 过于拥挤。
+				LikeBiome: "{BiomeName}很适合搜集材料。"
+				LoveBiome: "{BiomeName}非常适合搜集材料。"
+				DislikeBiome: "{BiomeName}很不适合搜集材料。"
+				HateBiome: "{BiomeName}非常不适合搜集材料。"
+				LikeNPC: "喜欢{NPCName}，方便提交材料。"
+				LoveNPC: "喜欢{NPCName}，非常方便提交材料。"
+				DislikeNPC: "不喜欢{NPCName}，过分的检查使我难以处理事物。"
+				HateNPC: "特别不喜欢{NPCName}，电磁干扰损坏了我的部分器件。"
 			}
 		}
 
@@ -121,8 +209,22 @@ Mods: {
 				StandardDialogue4 : "你可以从我这里买到很多东西"
 				StandardDialogue5 : "欢迎光临"
 				StandardDialogue6 : "虽然我是个科学家，但是现在只能卖卖东西维持生活的样子"
+				StandardDialogue7 : "你可以找我的机器人XZ503买东西"
+				StandardDialogue8 : "我的机器人有时候会出bug或者乱码，不过还好，搜集系统和交易系统没多大问题。不要介意，你以为我能从垃圾堆里造出什么高级东西？"
 				RareDialogue1 : "作为 根源 mod的第一个npc ,有幸与你对话"
 				RareDialogue2 : "枳 已经尽可能地把我画的好看些了。。。。。"
+			}
+			XZ503: {
+				StandardDialogue1 : "010010111000101101"
+				StandardDialogue2 : "烫烫烫烫烫烫������������(你乱码了)"
+				StandardDialogue3 : "吨吨吨吨吨吨吨吨吨吨吨吨"
+				StandardDialogue4 : "锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷"
+				StandardDialogue5 : "信息搜集完毕，可以正常对话"
+				StandardDialogue6 : "哔-----Loading"
+				StandardDialogue7 : "也许我有情感模块"
+				StandardDialogue8 : "也许你可以从我这里获得点我搜集到的材料，但由于科恩的交换条件，你需要支付钱"
+				StandardDialogue9 : "检测到来自灾厄的力量干涉，也许你可以从我这里获得点我搜集到的灾厄材料，但由于科恩的交换规则，你需要支付钱"
+				StandardDialogue10 : "有的稀有材料需要反复多次进行搜集记录才行，比如传说的泰拉棱镜可能需要你6次与光之女皇对决我才能搜集到足够的信息进行复制"
 			}
 		}
 	}

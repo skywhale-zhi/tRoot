@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -31,7 +28,7 @@ namespace tRoot.Content.Projectiles.Shooter
             Projectile.height = 2; // 碰撞箱长
 
             Projectile.usesLocalNPCImmunity = true;
-            Projectile.localNPCHitCooldown = 10;
+            Projectile.localNPCHitCooldown = 45;
 
             //贴图ai的应用，自动适应1号ai风格，吧贴图扭转
             //Projectile.aiStyle = 1; // ai风格
@@ -51,7 +48,6 @@ namespace tRoot.Content.Projectiles.Shooter
             //弹药性质改为子弹，不会受重力影响等
             //AIType = ProjectileID.Bullet; // Act exactly like default Bullet
             //Projectile.light = 1f;
-
         }
 
         public override void AI()
@@ -136,19 +132,16 @@ namespace tRoot.Content.Projectiles.Shooter
             //生成碎金
             float speedX = Main.rand.NextFloat(-2f, 2f);
             float speedY = Main.rand.NextFloat(-2f, 2f);
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, speedX, speedY, ModContent.ProjectileType<JadeSpiralBulletFragment>(), (int)(Projectile.damage * 0.3), 0f, Projectile.owner, 0f, 0f);
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, speedX, speedY, ModContent.ProjectileType<JadeSpiralBulletFragment>(), (int)(Projectile.damage * 0.5), 0f, Projectile.owner);
         }
     }
 
 
 
     //螺玉弹的碎屑
-    public class JadeSpiralBulletFragment : ModProjectile
+    internal class JadeSpiralBulletFragment : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-            DisplayName.AddTranslation(7, "螺玉碎屑");
-        }
+        //螺玉碎屑
         public override void SetDefaults()
         {
             Projectile.width = 6; // 碰撞箱宽
@@ -175,7 +168,7 @@ namespace tRoot.Content.Projectiles.Shooter
                                            //如果希望投射物在一帧中多次更新，请将其设置为0以上
             Projectile.extraUpdates = 1;
             //弹药大小
-            Projectile.scale = Main.rand.NextFloat(1f) + 1f;
+            Projectile.scale = Main.rand.NextFloat(0.7f) + 1f;
             //弹药性质改为子弹，不会受重力影响等
             AIType = ProjectileID.Bullet; // Act exactly like default Bullet
         }
@@ -185,7 +178,7 @@ namespace tRoot.Content.Projectiles.Shooter
         {
             Projectile.rotation += 0.4f * Projectile.direction;
             Projectile.velocity *= 0.98f;
-            Projectile.scale *= 0.98f;
+            Projectile.scale *= 0.99f;
         }
 
         //撞墙时反弹

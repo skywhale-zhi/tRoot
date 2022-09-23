@@ -7,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace tRoot.Content.Items.Weapons.Warrior
 {
-    public class BanDianStarSword : ModItem
+    internal class BanDianStarSword : ModItem
     {
         //斑淀星剑
         public override void SetStaticDefaults()
@@ -26,7 +26,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
 			Item.autoReuse = true;
 
 			Item.DamageType = DamageClass.Melee;
-			Item.damage = 50;
+			Item.damage = 82;
             Item.knockBack = 2;
 			Item.crit = 6;
 
@@ -45,7 +45,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
         {
             //添加灰尘
             if(Main.rand.NextBool(3))
-            Dust.NewDust(new Vector2(hitbox.X,hitbox.Y), hitbox.Width, hitbox.Height, DustID.MagicMirror, 0, 0, 150, default, 0.7f);
+                Dust.NewDust(new Vector2(hitbox.X,hitbox.Y), hitbox.Width, hitbox.Height, DustID.MagicMirror, 0, 0, 150, default, 0.7f);
         }
 
         //允许你修改这个项目的射击机制，默认为真，请手动改为假

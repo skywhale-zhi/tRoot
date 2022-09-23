@@ -17,7 +17,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
 
 		public override void SetDefaults()
 		{
-			Item.damage = 86;
+			Item.damage = 126;
 			Item.knockBack = 4f;
 			Item.useStyle = ItemUseStyleID.Rapier;
 			Item.useAnimation = 6;

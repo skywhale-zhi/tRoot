@@ -47,8 +47,6 @@ namespace tRoot.Content.Projectiles.Warrior
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("叶绿链珠");
-
             // These lines facilitate the trail drawing
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2;
@@ -203,11 +201,22 @@ namespace tRoot.Content.Projectiles.Warrior
                             StateTimer = 0f;
                             Projectile.netUpdate = true;
                             Projectile.velocity *= 0.2f;
-                            // 这里是滴滴怪链球发射刺球的地方
-                            /*
-							if (Main.myPlayer == Projectile.owner)
-								Projectile.NewProjectile(Projectile.GetProjectileSource_FromThis(), Projectile.Center, Projectile.velocity, 928, Projectile.damage, Projectile.knockBack, Main.myPlayer);
-							*/
+                            // 这也是“滴滴怪跛子”产生其投射物的地方，请参见上面的代码。
+                            //提前回收产生弹幕
+                            if (Main.myPlayer == Projectile.owner)
+                            {
+                                for (int i = -2; i < 3; i++)
+                                {
+                                    int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 3 * i), 227, Projectile.damage / 3, 0, Main.myPlayer);
+                                    Projectile p = Main.projectile[index];
+                                    p.usesLocalNPCImmunity = true;
+                                    p.localNPCHitCooldown = 10;
+                                    p.DamageType = DamageClass.Melee;
+                                    p.penetrate = -1;
+                                    p.timeLeft = 300;
+                                    p.velocity *= 0.1f;
+                                }
+                            }
                             break;
                         }
                         //如果转化成收回状态
@@ -218,6 +227,21 @@ namespace tRoot.Content.Projectiles.Warrior
                             Projectile.netUpdate = true;
                             Projectile.velocity *= 0.3f;
                             // 这也是“滴滴怪跛子”产生其投射物的地方，请参见上面的代码。
+                            // 最大距离发射产生弹幕
+                            if (Main.myPlayer == Projectile.owner)
+                            {
+                                for (int i = -4; i < 5; i++)
+                                {
+                                    int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 4.8 * i), 227, (int)(Projectile.damage * 0.5f), 0, Main.myPlayer);
+                                    Projectile p = Main.projectile[index];
+                                    p.usesLocalNPCImmunity = true;
+                                    p.localNPCHitCooldown = 8;
+                                    p.DamageType = DamageClass.Melee;
+                                    p.penetrate = -1;
+                                    p.timeLeft = 300;
+                                    p.velocity *= 0.1f;
+                                }
+                            }
                         }
 
                         //右键模式，不想要删掉下面这个if
@@ -362,6 +386,21 @@ namespace tRoot.Content.Projectiles.Warrior
                     //if(Main.rand.NextBool(2))
                     if (StateTimer++ >= ricochetTimeLimit)
                     {
+                        //撞击各种障碍物产生弹幕
+                        if (Main.myPlayer == Projectile.owner)
+                        {
+                            for (int i = -3; i < 3; i++)
+                            {
+                                int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 3 * i), 227, Projectile.damage / 4, 0, Main.myPlayer);
+                                Projectile p = Main.projectile[index];
+                                p.usesLocalNPCImmunity = true;
+                                p.localNPCHitCooldown = 10;
+                                p.DamageType = DamageClass.Melee;
+                                p.penetrate = -1;
+                                p.timeLeft = 300;
+                                p.velocity *= 0.1f;
+                            }
+                        }
                         CurrentAIState = AIState.Dropping;
                         StateTimer = 0f;
                         Projectile.netUpdate = true;

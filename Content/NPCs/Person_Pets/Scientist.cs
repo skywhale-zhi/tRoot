@@ -156,19 +156,21 @@ namespace tRoot.Content.NPCs.Person_Pets
         public override string GetChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
-
+            /*
             int partyGirl = NPC.FindFirstNPC(NPCID.PartyGirl);
             if (partyGirl >= 0 && Main.rand.NextBool(4))
             {
                 chat.Add(Language.GetTextValue("Mods.ExampleMod.Dialogue.ExamplePerson.PartyGirlDialogue", Main.npc[partyGirl].GivenName));
             }
-
+            */
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue1"));
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue2"));
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue3"));
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue4"));
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue5"));
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue6"));
+            chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue7"));
+            chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.StandardDialogue8"));
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.RareDialogue1"), 0.1);
             chat.Add(Language.GetTextValue("Mods.tRoot.Dialogue.Scientist.RareDialogue2"), 0.3);
 
@@ -197,8 +199,6 @@ namespace tRoot.Content.NPCs.Person_Pets
         // 商店功能
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
-            ModLoader.TryGetMod("CalamityMod", out Mod CalamityMod);
-
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Ammo.IceFireArrow>());
             shop.item[nextSlot++].value = Item.buyPrice(0, 0, 0, 25);
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Ammo.JadeSpiralBullet>());
@@ -207,92 +207,35 @@ namespace tRoot.Content.NPCs.Person_Pets
             shop.item[nextSlot++].value = Item.buyPrice(0, 2, 0, 0);
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Placeable.Block.MoireWood>());
             shop.item[nextSlot++].value = Item.buyPrice(0, 0, 0, 50);
-            shop.item[nextSlot].SetDefaults(2674);//普通鱼饵
-            shop.item[nextSlot++].value = Item.buyPrice(0, 0, 15, 0);
-            shop.item[nextSlot].SetDefaults(31);//瓶子
-            shop.item[nextSlot++].value = Item.buyPrice(0, 0, 1, 0);
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tools.BanDianHook>());
             shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Warrior.SeaStoneSpear>());
             shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Shooter.WillowVineBow>());
             shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
+
             if (NPC.downedBoss2)
             {
-                shop.item[nextSlot].SetDefaults(2675);//中级鱼饵
-                shop.item[nextSlot++].value = Item.buyPrice(0, 0, 50, 0);
-                shop.item[nextSlot].SetDefaults(29);//生命水晶
-                shop.item[nextSlot++].value = Item.buyPrice(0, 10, 0, 0);
-                shop.item[nextSlot].SetDefaults(109);//魔力星星
-                shop.item[nextSlot++].value = Item.buyPrice(0, 3, 0, 0);
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tools.BanDianAxe>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tools.BanDianHammer>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tools.BanDianPickaxe>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Warrior.BloodySpinningSpear>());
+                shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
             }
             if (NPC.downedBoss3)
             {
-                shop.item[nextSlot].SetDefaults(2676);//高级鱼饵
-                shop.item[nextSlot++].value = Item.buyPrice(0, 1, 11, 1);
-                shop.item[nextSlot].SetDefaults(148);//水蜡烛
-                shop.item[nextSlot++].value = Item.buyPrice(0, 0, 20, 0);
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Pets.MiniFlower.MiniFlowerItem>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 10, 0, 0);
-                shop.item[nextSlot].SetDefaults(227);//粉色治疗药水
-                shop.item[nextSlot++].value = Item.buyPrice(0, 0, 30, 0);
             }
             if (Main.hardMode)
             {
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Master.HolySwordRune>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 50, 0, 0);
-            }
-            if (NPC.downedPlantBoss)
-            {
-                shop.item[nextSlot].SetDefaults(1225);
-                shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
-                shop.item[nextSlot].SetDefaults(1253);
-                shop.item[nextSlot++].value = Item.buyPrice(2, 0, 0, 0);
-            }
-            if (NPC.downedGolemBoss)
-            {
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Shooter.StarDestroyer>());
-                shop.item[nextSlot++].value = Item.buyPrice(8, 0, 0, 0);
-                shop.item[nextSlot].SetDefaults(1326);
-                shop.item[nextSlot++].value = Item.buyPrice(30, 0, 0, 0);
-
-                if (CalamityMod != null && CalamityMod.TryFind<ModItem>("CryonicBar", out ModItem CryonicBar))
-                {
-                    shop.item[nextSlot].SetDefaults(CryonicBar.Type);
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
-                }
-                if (CalamityMod != null && CalamityMod.TryFind<ModItem>("PerennialBar", out ModItem PerennialBar))
-                {
-                    shop.item[nextSlot].SetDefaults(PerennialBar.Type);
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 6, 0, 0);
-                }
-                if (CalamityMod != null && CalamityMod.TryFind<ModItem>("ScoriaBar", out ModItem ScoriaBar))
-                {
-                    shop.item[nextSlot].SetDefaults(ScoriaBar.Type);
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 7, 0, 0);
-                }
-            }
-            if (NPC.downedMoonlord)
-            {
-                shop.item[nextSlot].SetDefaults(1006);
-                shop.item[nextSlot++].value = Item.buyPrice(0, 6, 0, 0);
-
-                if (CalamityMod != null && CalamityMod.TryFind<ModItem>("AstralOre", out ModItem AstralOre))
-                {
-                    shop.item[nextSlot].SetDefaults(AstralOre.Type);
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 2, 0, 0);
-                }
-                if (CalamityMod != null && CalamityMod.TryFind<ModItem>("GalacticaSingularity", out ModItem GalacticaSingularity))
-                {
-                    shop.item[nextSlot].SetDefaults(GalacticaSingularity.Type);
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 15, 0, 0);
-                }
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Things.BufferBalancingAgentⅡ>());
+                shop.item[nextSlot++].value = Item.buyPrice(0, 0, 20, 0);
             }
         }
 

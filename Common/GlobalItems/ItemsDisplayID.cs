@@ -10,13 +10,14 @@ namespace tRoot.Common.GlobalItems
 
         public override bool AppliesToEntity(Item entity, bool lateInstantiation)
         {
-            return false;
+            return true;
         }
 
         public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
         {
             // Here we add a tooltip to the gel to let the player know what will happen
-            tooltips.Add(new TooltipLine(Mod, "ItemIDs: ", $"【{item.type}】"));
+            tooltips.Add(new TooltipLine(Mod, "ItemIDs: ", $"物品id：【{item.type}】"));
+            tooltips.Add(new TooltipLine(Mod, "ItemValue: ", $"价值：【{item.value}】"));
         }
     }
 }

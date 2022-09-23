@@ -27,7 +27,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
 			Item.knockBack = 5.5f;
 			Item.width = 28;
 			Item.height = 34;
-			Item.damage = 50;
+			Item.damage = 70;//50
 			Item.noUseGraphic = true;
 			Item.shoot = ModContent.ProjectileType<HallowedMaceProjectile>();
 			Item.shootSpeed = 12f;

@@ -7,6 +7,7 @@ namespace tRoot.Content.Items.Ammo
 {
     internal class IceFireArrow : ModItem
 	{
+		//冰火箭
 		public override void SetStaticDefaults()
 		{
 			DisplayName.AddTranslation(7, "冰火箭");
@@ -19,14 +20,14 @@ namespace tRoot.Content.Items.Ammo
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 14;
 			Item.height = 32;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			//这会将物品标记为消耗品，使其在用作弹药或其他物品时自动消耗（如果可能）
 			Item.consumable = true;
 			Item.knockBack = 1.5f;
 			Item.value = 25;
 			Item.rare = ItemRarityID.Blue;
 			Item.shoot = ModContent.ProjectileType<Projectiles.Shooter.IceFireArrow>();
-			Item.shootSpeed = 4f;
+			Item.shootSpeed = 8f;
 			//该弹药所属的弹药类别。
 			Item.ammo = AmmoID.Arrow;
 		}

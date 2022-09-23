@@ -10,8 +10,6 @@ namespace tRoot.Content.Projectiles.Shooter
     {
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10; // The length of old position to be recorded
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
         }
 
         public override void SetDefaults()
@@ -38,6 +36,8 @@ namespace tRoot.Content.Projectiles.Shooter
             Projectile.scale = 1f;
             //弹药性质改为子弹，不会受重力影响等
             AIType = ProjectileID.WoodenArrowFriendly; // Act exactly like default Bullet
+            //弹药性质改成箭
+            Projectile.arrow = true;
 
         }
 
@@ -52,11 +52,11 @@ namespace tRoot.Content.Projectiles.Shooter
         {
             if (Main.rand.NextBool(2))
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0, 0, 0, default, 1);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0, 0, 0, default, 0.7f);
             }
             if (Main.rand.NextBool(2))
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 135, 0, 0, 0, default, 1);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 135, 0, 0, 0, default, 0.7f);
             }
         }
 

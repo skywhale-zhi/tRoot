@@ -37,6 +37,7 @@ namespace tRoot.Content.Items.Weapons.Summoner
             Item.rare = ItemRarityID.Lime;
 			Item.channel = false;
 			Item.value = Item.sellPrice(0, 12, 0, 0);
+			Item.autoReuse = true;
 		}
 
 		public override void AddRecipes()

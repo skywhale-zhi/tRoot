@@ -147,7 +147,7 @@ namespace tRoot.Content.Projectiles.Summoner
         //击中敌人给与buff和伤害衰减
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
 		{
-			target.AddBuff(ModContent.BuffType<ChlorophyteWhipDebuff>(), 60);
+			target.AddBuff(ModContent.BuffType<ChlorophyteWhipDebuff>(), 300);
 			Main.player[Projectile.owner].MinionAttackTargetNPC = target.whoAmI;
 			//显然可见，在这个方法执行的时候，伤害已经打出，所以*0.8不会在第一次攻击显示出来
 			Projectile.damage = (int)(damage * 0.80f);

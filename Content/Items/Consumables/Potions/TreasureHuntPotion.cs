@@ -32,7 +32,7 @@ namespace tRoot.Content.Items.Consumables.Potions
 			Item.useTime = 15;
 			Item.useTurn = true;
 			Item.UseSound = SoundID.Item3;
-			Item.maxStack = 99;
+			Item.maxStack = 9999;
 			Item.consumable = true;
 			Item.rare = ItemRarityID.Orange;
 			Item.value = Item.buyPrice(gold: 10);

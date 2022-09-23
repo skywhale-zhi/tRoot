@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using tRoot.Content.Projectiles.Summoner;
 
 namespace tRoot.Content.Buffs.FriendlyBuffs
 {
@@ -16,21 +17,22 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
 
         public override void Update(NPC npc, ref int buffIndex)
         {
-            npc.GetGlobalNPC<ExampleWhipDebuffNPC>().markedByExampleWhip = true;
+            npc.GetGlobalNPC<ChlorophyteWhipDebuffNPC>().markedByChlorophyteWhip = true;
+            npc.GetGlobalNPC<ChlorophyteWhipDebuffNPC>().bufftime = npc.buffTime[buffIndex];
         }
 
 
-        public class ExampleWhipDebuffNPC : GlobalNPC
+        public class ChlorophyteWhipDebuffNPC : GlobalNPC
         {
             // This is required to store information on entities that isn't shared between them.
             // 这是存储非共享实体信息所必需的。
             public override bool InstancePerEntity => true;
 
-            public bool markedByExampleWhip;
-
+            public bool markedByChlorophyteWhip;
+            public int bufftime;
             public override void ResetEffects(NPC npc)
             {
-                markedByExampleWhip = false;
+                markedByChlorophyteWhip = false;
             }
 
             // TODO: Inconsistent with vanilla, increasing damage AFTER it is randomised, not before. Change to a different hook in the future.
@@ -39,18 +41,43 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
             {
                 // Only player attacks should benefit from this buff, hence the NPC and trap checks.
                 // 只有玩家的攻击才会从这个增益中受益，因此NPC和陷阱检查。
-                if (markedByExampleWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type]))
+                if (markedByChlorophyteWhip && !projectile.npcProj && !projectile.trap && (projectile.minion || ProjectileID.Sets.MinionShot[projectile.type]))
                 {
+                    damage += 10;//300帧内，伤害 +10
+                    int time = 240;
                     Player player = Main.player[projectile.owner];
-
-                    player.statLife += 1;
-                    player.HealEffect(1);
-                    damage += 5;
-
-                    Vector2 pos = new Vector2(player.Center.X - 5, player.Center.Y - 5);
-                    for (int i = 0; i < 2; i++)
-                        Dust.NewDustDirect(pos, 10, 10, 107, 0, 0, 0, Color.White, 1);
+                    //对回血射弹数目进行约束，免得回血太快
+                    if (player.ownedProjectileCounts[ModContent.ProjectileType<ChlorophyteWhipDebuffProj>()] < 10)
+                    {
+                        if (bufftime > time)//time帧内，吸血弹幕生成，10%额外暴击
+                        {
+                            if (Main.rand.Next(100) <= 10)
+                            {
+                                crit = true;
+                                int heal = damage / 10 > 2 ? damage / 10 : 2;
+                                heal = damage / 10 <= 10 ? damage / 10 : 10;
+                                Projectile.NewProjectile(npc.GetSource_OnHit(player), npc.Center, Vector2.Zero, ModContent.ProjectileType<ChlorophyteWhipDebuffProj>(), 0, 0, player.whoAmI, heal);
+                            }
+                            else
+                            {
+                                Projectile.NewProjectile(npc.GetSource_OnHit(player), npc.Center, Vector2.Zero, ModContent.ProjectileType<ChlorophyteWhipDebuffProj>(), 0, 0, player.whoAmI, 1);
+                            }
+                        }
+                    }
                 }
+            }
+
+            public override void AI(NPC npc)
+            {
+                if (markedByChlorophyteWhip)
+                {
+                    if (Main.rand.NextBool(3))
+                    {
+                        Dust dust = Dust.NewDustDirect(npc.Center - new Vector2(npc.width / 2, npc.height / 2), npc.width, npc.height, DustID.Chlorophyte, 0, 0, 185, Color.White, 1.7f);
+                        dust.noGravity = true;
+                    }
+                }
+                base.AI(npc);
             }
         }
     }

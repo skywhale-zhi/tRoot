@@ -5,11 +5,11 @@ using Terraria.ModLoader;
 
 namespace tRoot.Content.Items.Ammo
 {
-    public class JadeSpiralBullet : ModItem
+    internal class JadeSpiralBullet : ModItem
 	{
+		//螺玉弹
 		public override void SetStaticDefaults()
 		{
-			DisplayName.AddTranslation(7, "螺玉弹");
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 99;
 		}
 
@@ -19,7 +19,7 @@ namespace tRoot.Content.Items.Ammo
 			Item.DamageType = DamageClass.Ranged;
 			Item.width = 8;
 			Item.height = 8;
-			Item.maxStack = 999;
+			Item.maxStack = 9999;
 			//这会将物品标记为消耗品，使其在用作弹药或其他物品时自动消耗（如果可能）
 			Item.consumable = true;
 			Item.knockBack = 1.5f;

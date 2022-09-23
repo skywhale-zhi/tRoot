@@ -185,7 +185,7 @@ namespace tRoot.Content.Projectiles.Master
             surroundCount = 0;
             for (int i = 0; i < Main.maxProjectiles; i++)
             {
-                if (Main.projectile[i].type == Projectile.type && Main.projectile[i].active && (Main.projectile[i].ai[1] == (float)AttackState.Null || Main.projectile[i].ai[1] == (float)AttackState.Surround))
+                if (Main.projectile[i].type == Projectile.type && Main.projectile[i].owner == Projectile.owner && Main.projectile[i].active && (Main.projectile[i].ai[1] == (float)AttackState.Null || Main.projectile[i].ai[1] == (float)AttackState.Surround))
                 {
                     surroundCount++;
                     //如果环绕数大于10，循环结束，数目记录为10

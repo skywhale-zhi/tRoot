@@ -10,9 +10,6 @@ namespace tRoot.Content.Items.Weapons.Warrior
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.AddTranslation(7, "叶绿链球");
-			Tooltip.AddTranslation(7, "右键自动掷出，但略微降低伤害\n喷吐致命孢子云");
-			Tooltip.AddTranslation(1, "Right click to automatically throw, but slightly reduce damage\nSpit deadly spore cloud");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
 
             //此行将使工具提示中显示的伤害为实际Item.damage的两倍。该乘数用于调整弹丸的动态伤害情况。
@@ -28,7 +25,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
 			Item.knockBack = 5.5f;
 			Item.width = 32;
 			Item.height = 32;
-			Item.damage = 60;
+			Item.damage = 80;//60
 			Item.noUseGraphic = true;
 			Item.shoot = ModContent.ProjectileType<ChlorophyteFlailProjectile>();
 			Item.shootSpeed = 12f;

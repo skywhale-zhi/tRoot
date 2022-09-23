@@ -1,16 +1,15 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace tRoot.Content.Items.Weapons.Warrior
 {
+    //海石长矛
     public class SeaStoneSpear : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.AddTranslation(7,"海石长矛");
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
