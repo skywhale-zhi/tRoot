@@ -1,0 +1,94 @@
+Mods: {
+	tRoot: {
+		NPCName: {
+			Scientist: Scientist
+		}
+
+		ItemTooltip: {
+			BanDianPickaxe:
+				'''
+				Can mine the Hell Flame Mine
+				'''
+			ChlorophyteFishingRod:
+				'''
+				Throw 2 fishing lines at a time
+				'''
+			ArcaneFloatingCannon:
+				'''
+				Long press to summon the surrounding arcane cannon, right-click to shoot
+				'''
+			BlueDeepSea:
+				'''
+				40% chance to not consume ammunition
+				Broken ammunition explodes into mushrooms
+				'''
+			StarDestroyer:
+				'''
+				Shoot multiple arrows
+				'''
+			WillowVineBow:
+				'''
+				There is a chance to shoot two arrows
+				'''
+			BanDianStarSword:
+				'''
+				The green falling star smashed the enemy
+				'''
+		}
+		
+		ItemName: {
+			MiniFlowerItem: "Seed bud"
+		}
+		
+		ProjectileName: {
+			MiniFlowerProjectile: "Mini Flower"
+		}
+		
+		BuffName: {
+			MiniFlowerBuff: "Mini Flower"
+		}
+		
+		BuffDescription: {
+			MiniFlowerBuff: "Flowers surround you"
+		}
+		
+		Bestiary: {
+			Scientist: A scientist from a mysterious country came here unexpectedly because of his invention and debugging mistakes, and has been looking for ways to leave.
+		}
+		
+		TownNPCMood: {
+			Scientist: {
+				Content: It's very good now, I'm serious
+				NoHome: I'm homeless, homeless.....
+				LoveSpace: This is a great place. Thank you. I will give you a discount when you come to me to buy things
+				FarFromHome: If I could go back in a flash, I would have to walk now
+				DislikeCrowded: There are a lot of people. What if someone goes along with my things
+				HateCrowded: Too many people, I don't like it
+				LikeBome: "{BiomeName} is a good place"
+				LoveBiome: "{BiomeName} is really great. All tasks are executed smoothly"
+				DislikeBiome: "{BiomeName} will disrupt my information collection and testing"
+				HateBome: "This is {BiomeName}, my experiment is completely destroyed"
+				LikeNPC: "I like {NPCName}. He knows everything and can help me a lot"
+				LoveNPC: "Do you think {NPCName} notices me?"
+				DislikeNPC: "I don't like this neighbor, {NPCName} will steal my business"
+				HateNPC: "Can I throw {NPCName} into the sea to feed sharks? Well, no, I did take a lot of bait from him..."
+			}
+		}
+
+		MessageInfo: {
+		}
+		
+		Dialogue: {
+			Scientist: {
+				StandardDialogue1 : "Hello Wow."
+				StandardDialogue2 : "Have you seen my debugger?"
+				StandardDialogue3 : "You asked me what I wore on my head. It's a secret. At least I can't tell you now"
+				StandardDialogue4 : "You can buy many things from me"
+				StandardDialogue5 : "Welcome"
+				StandardDialogue6 : "Although I am a scientist, I can only sell things to make a living"
+				RareDialogue1 : "As the first npc of root mod, I have the honor to talk to you"
+				RareDialogue2 : "The author has made my painting as beautiful as possible....."
+			}
+		}
+	}
+}

@@ -1,0 +1,129 @@
+Mods: {
+	tRoot: {
+		NPCName: {			
+			Scientist: 科学家
+		}
+
+		ItemTooltip: {
+			BanDianPickaxe:
+				'''
+				可以开采狱炎矿
+				'''
+			ChlorophyteFishingRod:
+				'''
+				一次掷出2条鱼线
+				'''
+			ArcaneFloatingCannon:
+				'''
+				长按召唤环绕在周围的奥术炮，右键射出
+				'''
+			BlueDeepSea:
+				'''
+				40%几率不消耗弹药
+				碎裂的弹药炸裂出蘑菇
+				'''
+			StarDestroyer:
+				'''
+				射出多支箭
+				'''
+			WillowVineBow:
+				'''
+				有概率射出两只箭
+				'''
+			BanDianStarSword:
+				'''
+				青蓝的坠星砸向敌人
+				'''
+			ChlorophyteWhip:
+				'''
+				使召唤物仆从增加5点伤害
+				你召唤的仆从将集中打击被标记的敌人
+				打击敌人以获得叶绿根殖
+				叶绿根殖会在召唤物打击敌人时给玩家窃取些许血量
+				'''
+		}
+		
+
+		ItemName: {
+			IceFireArrow: "冰火箭"
+			JadeSpiralBullet: "螺玉弹"
+			MoireWood: "云纹木"
+			BanDianAxe: "斑淀斧"
+			BanDianHammer: "斑淀锤"
+			BanDianPickaxe: "斑淀镐"
+			ChlorophyteFishingRod: "叶绿钓竿"
+			BanDianHook: "斑淀钩"
+			ArcaneFloatingCannon: "奥术浮游炮"
+			ColorfulGemStaff: "宝石节枝法杖"
+			HolySwordRune: "圣剑符文石"
+			DestructiveImpact: "毁灭冲击"
+			StarDestroyer: "歼星者"
+			WillowVineBow: "柳藤弓"
+			BanDianStarSword: "斑淀星剑"
+			MiniFlowerItem: "花芽"
+			ChlorophyteWhip: "翠鞭"
+		}
+		
+
+		ProjectileName: {
+			IceFireArrow: "冰火箭"
+			JadeSpiralBullet: "螺玉弹"
+			ChlorophyteFishingRodBobber: "叶绿浮标"
+			BanDianHookProjectile: "斑淀钩"
+			ArcaneFloatingCannonProjectile: "奥术浮游炮法球"
+			ColorfulGemProjectile: "多彩宝石射弹"
+			MagicSword: "魔法剑"
+			BlueDeepSea: "蔚蓝深海"
+			MiniFlowerProjectile: "迷你小花"
+			ChlorophyteWhipProjectile: "翠鞭节"
+		}
+		
+
+		BuffName: {
+			MiniFlowerBuff: "迷你小花"
+		}
+		
+
+		BuffDescription: {
+			MiniFlowerBuff: "花花围绕着你"
+		}
+		
+
+		Bestiary: {
+			Scientist: 一个来自神秘国度的科学家，因他的发明调试错误而意外的来到这里，一直在寻找离开的方法.
+		}
+		
+
+		TownNPCMood: {
+			Scientist: {
+				Content: 现在挺好的，我说真的
+				NoHome: 我无家可归，无家可归。。。。。
+				LoveSpace: 这地方太棒了，谢谢你，以后找我买东西我会给你打折哦
+				FarFromHome: 要是在以前，我能瞬移回去，现在只能徒步走了
+				DislikeCrowded: 人多了点，万一有人顺走我的东西怎办
+				HateCrowded: 人太多了，很不喜欢
+				LikeBiome: "{BiomeName}是个好地方"
+				LoveBiome: "{BiomeName}实在是太棒了，所有任务顺利执行"
+				DislikeBiome: "{BiomeName}会扰乱我的信息搜集和测试"
+				HateBiome: "就是这{BiomeName}，我的实验全毁了"
+				LikeNPC: "我喜欢{NPCName}，他什么都知道，能帮我很多"
+				LoveNPC: "Do you think {NPCName} notices me?"
+				DislikeNPC: "我不喜欢这个邻居，{NPCName}会抢走我的生意的"
+				HateNPC: "我能把{NPCName}丢海里喂鲨鱼吗？好吧不能，我确实从他那顺走不少鱼饵。。。。"
+			}
+		}
+
+		Dialogue: {
+			Scientist: {
+				StandardDialogue1 : "哈喽哇"
+				StandardDialogue2 : "有看到我的调试器吗？"
+				StandardDialogue3 : "你问我头上戴的是什么，那是个秘密，至少现在不能告诉你"
+				StandardDialogue4 : "你可以从我这里买到很多东西"
+				StandardDialogue5 : "欢迎光临"
+				StandardDialogue6 : "虽然我是个科学家，但是现在只能卖卖东西维持生活的样子"
+				RareDialogue1 : "作为 根源 mod的第一个npc ,有幸与你对话"
+				RareDialogue2 : "枳 已经尽可能地把我画的好看些了。。。。。"
+			}
+		}
+	}
+}
