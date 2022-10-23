@@ -80,7 +80,7 @@ namespace tRoot.Content.Projectiles.Warrior
 
             if (Main.rand.NextBool(5))
             {
-                Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 16, 0, 0, Alpha: 128, new Color(8, 72, 121), Scale: 0.8f);
+                Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud, 0, 0, Alpha: 128, new Color(8, 72, 121), Scale: 0.8f);
             }
 
             return false; // Don't execute vanilla AI.

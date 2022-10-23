@@ -114,7 +114,7 @@ namespace tRoot.Content.NPCs.Person_Pets
         //是否满足了这个城镇NPC能够进城的条件。例如，爆破专家要求有炸药。
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
-            for (int k = 0; k < 255; k++)
+            for (int k = 0; k < Main.npc.Length; k++)
             {
                 NPC tempnpc = Main.npc[k];
                 if (tempnpc.type == ModContent.NPCType<Scientist>())
@@ -197,7 +197,6 @@ namespace tRoot.Content.NPCs.Person_Pets
         {
             NPCKillsTracker NKT = Main.BestiaryTracker.Kills;
 
-            //int count = temp.GetKillCount(ContentSamples.NpcBestiaryCreditIdsByNpcNetIds[50]);
             if (!XZ503Data.CalamityModShop)
             {
                 if (NPC.downedBoss1 && (!NPC.downedBoss2 || !NPC.downedBoss3))
@@ -213,7 +212,7 @@ namespace tRoot.Content.NPCs.Person_Pets
                 else if (NPC.downedBoss3)
                 {
                     shop.item[nextSlot].SetDefaults(2676);//高级鱼饵
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 90, 0, 0);
+                    shop.item[nextSlot++].value = Item.buyPrice(0, 0, 90, 0);
                 }
 
                 shop.item[nextSlot].SetDefaults(31);//瓶子
@@ -224,7 +223,7 @@ namespace tRoot.Content.NPCs.Person_Pets
                     shop.item[nextSlot].SetDefaults(29);//生命水晶
                     shop.item[nextSlot++].value = Item.buyPrice(0, 10, 0, 0);
                     shop.item[nextSlot].SetDefaults(75);//坠星
-                    shop.item[nextSlot++].value = Item.buyPrice(0, 0, 40, 0);
+                    shop.item[nextSlot++].value = Item.buyPrice(0, 0, 20, 0);
                 }
                 if (NPC.downedBoss3)
                 {
@@ -237,6 +236,8 @@ namespace tRoot.Content.NPCs.Person_Pets
                     shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
                     shop.item[nextSlot].SetDefaults(1253);//冰龟壳
                     shop.item[nextSlot++].value = Item.buyPrice(2, 0, 0, 0);
+                    shop.item[nextSlot].SetDefaults(3124);//手机
+                    shop.item[nextSlot++].value = Item.buyPrice(5, 0, 0, 0);
 
                 }
                 if (NPC.downedGolemBoss)
@@ -246,8 +247,6 @@ namespace tRoot.Content.NPCs.Person_Pets
                     shop.item[nextSlot].SetDefaults(1291);//生命果
                     shop.item[nextSlot++].value = Item.buyPrice(0, 10, 0, 0);
                     shop.item[nextSlot].SetDefaults(1613);//十字章盾
-                    shop.item[nextSlot++].value = Item.buyPrice(5, 0, 0, 0);
-                    shop.item[nextSlot].SetDefaults(3124);//手机
                     shop.item[nextSlot++].value = Item.buyPrice(5, 0, 0, 0);
                 }
 
@@ -283,29 +282,26 @@ namespace tRoot.Content.NPCs.Person_Pets
             {
                 if (Main.hardMode)
                 {
-                    if (tRoot.CalamityMod.TryFind<ModItem>("SlimeGodBag", out ModItem SlimeGodBag))//史莱姆神袋子
+                    if (tRoot.CalamityMod.TryFind<ModItem>("BloodOrb", out ModItem BloodOrb))//血珠
                     {
-                        shop.item[nextSlot].SetDefaults(SlimeGodBag.Type);
-                        shop.item[nextSlot++].value = Item.buyPrice(0, 50, 0, 0);
+                        shop.item[nextSlot].SetDefaults(BloodOrb.Type);
+                        shop.item[nextSlot++].value = Item.buyPrice(0, 0, 20, 0);
                     }
                 }
-
-                if (NPC.downedPlantBoss)
+                if (NPC.downedMechBossAny)
                 {
                     if (tRoot.CalamityMod.TryFind<ModItem>("SupremeBaitTackleBoxFishingStation", out ModItem sbtbfs))//超级钓鱼器
                     {
                         shop.item[nextSlot].SetDefaults(sbtbfs.Type);
                         shop.item[nextSlot++].value = Item.buyPrice(5, 0, 0, 0);
                     }
+                }
+                if (NPC.downedPlantBoss)
+                {
                     if (tRoot.CalamityMod.TryFind<ModItem>("AngelTreads", out ModItem AngelTreads))//天使靴
                     {
                         shop.item[nextSlot].SetDefaults(AngelTreads.Type);
                         shop.item[nextSlot++].value = Item.buyPrice(10, 0, 0, 0);
-                    }
-                    if (tRoot.CalamityMod.TryFind<ModItem>("BloodOrb", out ModItem BloodOrb))//血珠
-                    {
-                        shop.item[nextSlot].SetDefaults(BloodOrb.Type);
-                        shop.item[nextSlot++].value = Item.buyPrice(0, 1, 0, 0);
                     }
                 }
 

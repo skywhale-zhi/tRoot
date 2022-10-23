@@ -1,8 +1,5 @@
 Mods: {
 	tRoot: {
-
-
-
 		NPCName: {
 			Scientist: Scientist
 			XZ503 : Robot
@@ -28,7 +25,8 @@ Mods: {
 				'''
 			StarDestroyer:
 				'''
-				Convert a wooden arrow into a lightning bolt, Shoot multiple arrows
+				Convert a wooden arrow into a lightning bolt
+				Shoot multiple arrows
 				'''
 			WillowVineBow:
 				'''
@@ -50,14 +48,14 @@ Mods: {
 				Right click to automatically throw, but slightly reduce damage
 				Spits out a deadly spore cloud, and releases a leafy green crystal arrow that ignores a large number of invincible enemy frames
 				'''
-			FlaskofMixedToxin:
-				'''
-				Melee and Whip attacks inflict enemies with MixedToxinⅠ
-				'''
 			FlaskofMixedToxinⅠ:
 				'''
 				Melee and Whip attacks inflict enemies with MixedToxinⅠ
 				Reduces the enemy's defense and causes damage of MixedToxin Ⅰ, which can be stacked with other poison bottles
+				'''
+			BufferBalancingAgentⅠ:
+				'''
+				It can balance the incompatible parts of most materials and be used as an additive to create more powerful materials
 				'''
 			BufferBalancingAgentⅡ:
 				'''
@@ -67,6 +65,38 @@ Mods: {
 				'''
 				Ignore the enemy's massive defense and quickly tear your enemy apart
 				Cause more damage to enemies with low defence
+				'''
+			MixedToxinⅠArrow:
+				'''
+				Poisonous molten drops fall from the tail of the arrow and apply Harmonized Toxin I to the target
+				'''
+			MixedToxinⅠBullet:
+				'''
+				Release toxic aerosol during impact, and apply concordant toxin I to the target
+				'''
+			BloodySpinningSpear:
+				'''
+				Let your enemies bleed
+				'''
+			BloodDrawingLance:
+				'''
+				Adhere to the enemy to suck blood and heal the player
+				Right click to detonate all attached spears and cause 3 times of damage
+				Resist the enemy's damage reduction to a certain extent
+				'''
+			ButterflyLamp:
+				'''
+				"Sweeping the floor may hurt ants, but cherish the moth gauze lamp"
+				————Chapter 27 of Journey to the West
+				Cause Samadhi True Fire to the enemy and reduce benefits
+				'''
+			GalvanicCoupleGun:
+				'''
+				Launches two ionizing spheres attracted by each other through electric current, causing damage to enemies in the middle
+				'''
+			LethalRay:
+				'''
+				Emit rays that repeatedly hit the enemy
 				'''
 		}
 		

@@ -47,7 +47,7 @@ namespace tRoot.Content.Items.Weapons.Master
                 f += i * (float)MathHelper.ToRadians(1);
                 velocity = f.ToRotationVector2() * Item.shootSpeed * (Main.rand.NextFloat(0.6f, 1.2f));
                 int n = Main.rand.NextBool(2) ? 1 : -1;
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Master.ColorfulGemProjectile>(), damage, knockback, player.whoAmI, Main.rand.NextFloat(0.7f, 1f) * n, 0);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<Projectiles.Master.ColorfulGemProjectile>(), damage, knockback, player.whoAmI, Main.rand.NextFloat(0.7f, 1f) * n);
             }
             return false;
         }
@@ -67,9 +67,10 @@ namespace tRoot.Content.Items.Weapons.Master
                 .AddIngredient(ItemID.SapphireStaff, 1)
                 .AddIngredient(ItemID.RubyStaff, 1)
                 .AddIngredient(ItemID.AmberStaff, 1)
+                .AddRecipeGroup(nameof(ItemID.MythrilBar), 8)
                 .AddIngredient(ItemID.SoulofLight, 3)
                 .AddIngredient(ItemID.SoulofNight, 3)
-                .AddTile(TileID.Anvils)
+                .AddTile(TileID.MythrilAnvil)
                 .Register();
 
             CreateRecipe()
@@ -77,9 +78,10 @@ namespace tRoot.Content.Items.Weapons.Master
                 .AddIngredient(ItemID.EmeraldStaff, 1)
                 .AddIngredient(ItemID.DiamondStaff, 1)
                 .AddIngredient(ItemID.AmberStaff, 1)
+                .AddRecipeGroup(nameof(ItemID.MythrilBar), 8)
                 .AddIngredient(ItemID.SoulofLight, 3)
                 .AddIngredient(ItemID.SoulofNight, 3)
-                .AddTile(TileID.Anvils)
+                .AddTile(TileID.MythrilAnvil)
                 .Register();
         }
     }

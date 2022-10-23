@@ -50,7 +50,7 @@ namespace tRoot.Content.Items.Weapons.Shooter
             float rotation = MathHelper.ToRadians(1);
             position += Vector2.Normalize(velocity) * 45f;
             int num;
-            if (Main.rand.NextBool(2))
+            if (Main.rand.NextBool(4))
             {
                 num = 2;
             }

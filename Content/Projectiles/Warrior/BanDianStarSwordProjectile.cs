@@ -113,7 +113,7 @@ namespace tRoot.Content.Projectiles.Warrior
             Projectile.rotation += MathHelper.Pi * 0.08f;
 
             //尾焰尘
-            Dust.NewDust(Projectile.position + new Vector2(Projectile.width / 2, Projectile.height / 2), 1, 1, 15, 0, 0, 150, default, 0.5f);
+            Dust.NewDust(Projectile.position + new Vector2(Projectile.width / 2, Projectile.height / 2), 1, 1, DustID.MagicMirror, 0, 0, 150, default, 0.5f);
         }
 
 

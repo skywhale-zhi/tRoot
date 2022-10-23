@@ -73,7 +73,7 @@ namespace tRoot.Content.Projectiles.Shooter
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
             if (Main.rand.NextBool(2))
-                target.AddBuff(ModContent.BuffType<Buffs.FriendlyBuffs.MixedToxinⅠ>(), 360);
+                target.AddBuff(ModContent.BuffType<Buffs.MixedToxinⅠ>(), 360);
             if (Main.rand.NextBool(40 - Main.player[Projectile.owner].ownedProjectileCounts[ModContent.ProjectileType<MixedToxinⅠBulletProjectile2>()], 40))
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.One.RotateRandom(MathHelper.TwoPi) * 2f, ModContent.ProjectileType<MixedToxinⅠBulletProjectile2>(), (int)(Projectile.damage * 0.3f), 0, Projectile.owner);
         }
@@ -163,7 +163,7 @@ namespace tRoot.Content.Projectiles.Shooter
 
         public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.FriendlyBuffs.MixedToxinⅠ>(), 300);
+            target.AddBuff(ModContent.BuffType<Buffs.MixedToxinⅠ>(), 300);
         }
     }
 }

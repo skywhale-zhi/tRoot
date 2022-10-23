@@ -4,6 +4,7 @@ Mods: {
 			Scientist: 科学家
 			XZ503: 机器人
 		}
+
 		ItemTooltip: {
 			BanDianPickaxe:
 				'''
@@ -24,8 +25,8 @@ Mods: {
 				'''
 			StarDestroyer:
 				'''
-				将木箭转化成闪电矢，射出多支箭
-				箭碎裂释放电浆，对周围敌人造成次级伤害
+				将木箭转化成电云矢，造成雷劫减益
+				箭碎裂释放电浆，加速其他种类的箭矢
 				'''
 			WillowVineBow:
 				'''
@@ -54,16 +55,16 @@ Mods: {
 				'''
 			BufferBalancingAgentⅠ:
 				'''
-				能平衡多数材料不相容的部分，用作添加剂来创造更强大的材料
+				能平衡少数材料不相容的部分，勉强让他们兼容
 				'''
 			BufferBalancingAgentⅡ:
 				'''
-				能平衡多数材料不相容的部分，用作添加剂来创造更强大的材料
+				能平衡一些材料不相容的部分，用作添加剂来创造结合更多特性的材料
 				'''
 			LuminiteBlade:
 				'''
 				忽略敌人大量防御，将你的敌人快速撕裂
-				敌人受到的减益越猛烈，额外的伤害越多
+				敌人受到的减益越猛烈，额外的伤害越多（鞭子失效补偿）
 				'''
 			MixedToxinⅠArrow:
 				'''
@@ -80,7 +81,23 @@ Mods: {
 			BloodDrawingLance:
 				'''
 				黏附于敌人身上吸血并治疗玩家
-				一定程度抵抗敌人的伤害减免
+				右击引爆所有黏附长矛并造成3倍伤害
+				完全抵抗敌人的伤害减免，但不受任何其他力量的伤害加成
+				“只瞄准敌人的要害攻击！”
+				'''
+			ButterflyLamp:
+				'''
+				"扫地恐伤蝼蚁命，爱惜飞蛾纱罩灯"
+				————西游记第二十七回
+				对敌人造成神火减益
+				'''
+			GalvanicCoupleGun:
+				'''
+				发射两个互相通过电流吸引的电离球，对中间的敌人造成伤害
+				'''
+			LethalRay:
+				'''
+				发射出反复打击敌人的射线
 				'''
 		}
 		
@@ -117,6 +134,10 @@ Mods: {
 			BloodySpinningSpear: "血钻长矛"
 			SeaStoneSpear: "海石长矛"
 			BloodDrawingLance: "汲血长枪"
+			ButterflyLamp: "瑶蝶灯"
+			GalvanicCoupleGun: "电离球枪"
+			LethalRay: "致命射线"
+			DissociationRayStaff: "解离射线法杖"
 		}
 		
 
@@ -139,6 +160,13 @@ Mods: {
 			JadeSpiralBulletFragment: "螺玉碎屑"
 			SeaStoneSpear: "海石长矛"
 			BloodySpinningSpearProjectile: "血钻长矛"
+			ButterflyLampProjectile1: "橙灯火蝶"
+			ButterflyLampProjectile2: "黄灯火蝶"
+			ButterflyLampProjectile3: "红灯火蝶"
+			GalvanicCoupleProjectile1: "电离球"
+			GalvanicCoupleProjectile2: "电离网"
+			LethalRayProjectile: "死亡射线"
+			LightningBolt: "电云矢"
 		}
 		
 
@@ -148,15 +176,19 @@ Mods: {
 			MixedToxinⅠ: "调和毒素 Ⅰ"
 			LuminiteBladeBuff: "夜明之锋"
 			ChlorophyteWhipDebuff: "叶绿根殖"
+			SamadhiTrueFire: "神火"
+			Thunder: "雷劫"
 		}
 		
 
 		BuffDescription: {
 			MiniFlowerBuff: "花花围绕着你"
 			WeaponImbueMixedToxinⅠ: "近战和鞭子攻击会对你的目标施放调和毒素 Ⅰ"
-			MixedToxinⅠ: "多种腐败毒素以巧妙的方式混合而成"
+			MixedToxinⅠ: "多种腐败毒素混合而成，降低敌人防御，损害生命"
 			LuminiteBladeBuff: "将你的敌人拆解干净！"
 			ChlorophyteWhipDebuff: "增幅仆从的伤害和暴击，并窃取生命值"
+			SamadhiTrueFire: "心者君火，亦称神火，将受害者的生命转化成光和热"
+			Thunder: "破坏肉体，解离成灰"
 		}
 		
 

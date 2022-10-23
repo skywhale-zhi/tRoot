@@ -4,8 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using tRoot.Content.Projectiles.Summoner;
 
-namespace tRoot.Content.Buffs.FriendlyBuffs
+namespace tRoot.Content.Buffs.Whips
 {
+    //翠鞭叶绿根殖debuff
     internal class ChlorophyteWhipDebuff : ModBuff
     {
         public override void SetStaticDefaults()
@@ -47,7 +48,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
                     int time = 240;
                     Player player = Main.player[projectile.owner];
                     //对回血射弹数目进行约束，免得回血太快
-                    if (player.ownedProjectileCounts[ModContent.ProjectileType<ChlorophyteWhipDebuffProj>()] < 10)
+                    if (player.ownedProjectileCounts[ModContent.ProjectileType<ChlorophyteWhipDebuffProj>()] < 5 && npc.CanBeChasedBy())
                     {
                         if (bufftime > time)//time帧内，吸血弹幕生成，10%额外暴击
                         {
@@ -55,7 +56,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
                             {
                                 crit = true;
                                 int heal = damage / 10 > 2 ? damage / 10 : 2;
-                                heal = damage / 10 <= 10 ? damage / 10 : 10;
+                                heal = damage / 10 <= 5 ? damage / 10 : 5;
                                 Projectile.NewProjectile(npc.GetSource_OnHit(player), npc.Center, Vector2.Zero, ModContent.ProjectileType<ChlorophyteWhipDebuffProj>(), 0, 0, player.whoAmI, heal);
                             }
                             else

@@ -540,6 +540,18 @@ namespace tRoot.Content.Projectiles.Warrior
         }
 
 
+        public override void Load()
+        {
+            chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
+            chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath); //此纹理和相关代码是可选的，用于实现独特的效果
+        }
+        public override void Unload()
+        {
+            chainTexture = null;
+            chainTextureExtra = null;
+        }
+        private static Asset<Texture2D> chainTexture;
+        private static Asset<Texture2D> chainTextureExtra;
         // PreDraw用于在正常绘制投射物之前绘制链和轨迹。
         public override bool PreDraw(ref Color lightColor)
         {
@@ -547,9 +559,6 @@ namespace tRoot.Content.Projectiles.Warrior
 
             //这修复了vanilla GetPlayerArmPosition错误，该错误导致链在爬坡时绘制错误。由于另一个类似的错误，连枷本身仍然不能正确牵引。一旦vanilla bug被修复，这应该被删除。
             playerArmPosition.Y -= Main.player[Projectile.owner].gfxOffY;
-
-            Asset<Texture2D> chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
-            Asset<Texture2D> chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath); //此纹理和相关代码是可选的，用于实现独特的效果
 
             Rectangle? chainSourceRectangle = null;
             // Drippler Crippler customizes sourceRectangle to cycle through sprite frames: sourceRectangle = asset.Frame(1, 6);

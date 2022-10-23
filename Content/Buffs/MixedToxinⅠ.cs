@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace tRoot.Content.Buffs.FriendlyBuffs
+namespace tRoot.Content.Buffs
 {
     internal class MixedToxinⅠ : ModBuff
     {
@@ -19,7 +17,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
             public override bool InstancePerEntity => true;
 
             //buff是否起效果中
-            public bool enable;     
+            public bool enable;
 
             public override void ResetEffects(NPC npc)
             {
@@ -41,7 +39,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
             {
                 if (enable)
                 {
-                    if (Main.rand.NextBool(2))
+                    if (Main.rand.NextBool(1))
                     {
                         Dust.NewDustDirect(npc.Center - new Vector2(npc.width / 2, npc.height / 2), npc.width, npc.height, ModContent.DustType<Dusts.MixedToxinⅠDust>(), 0, 0, 160, Color.White, 1.7f);
                     }
@@ -57,7 +55,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
                 {
                     //印象扣血速度
                     npc.lifeRegen -= 80;
-                    if(damage == -1)
+                    if (damage == -1)
                         damage += 21;//影响扣血量
                     else
                         damage += 20;

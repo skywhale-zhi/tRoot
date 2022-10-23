@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.Creative;
@@ -40,6 +41,26 @@ namespace tRoot.Content.Items.Weapons.Summoner
             Item.shoot = ModContent.ProjectileType<Projectiles.Summoner.LuminiteBladeProjectile>();
         }
 
+
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            // This code shows using Color.Lerp,  Main.GameUpdateCount, and the modulo operator (%) to do a neat effect cycling between 4 custom colors.
+            int numColors = tRoot.ItemNameColor1.Length;
+
+            foreach (TooltipLine line2 in tooltips)
+            {
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                {
+                    float fade = (Main.GameUpdateCount % 60) / 60f;
+                    int index = (int)((Main.GameUpdateCount / 60) % numColors);
+                    int nextIndex = (index + 1) % numColors;
+
+                    line2.OverrideColor = Color.Lerp(tRoot.ItemNameColor1[index], tRoot.ItemNameColor1[nextIndex], fade);
+                }
+            }
+        }
+
+
         //在这里你可以改变仆从的出生位置。大多数原版仆从在光标位置生成
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
@@ -68,7 +89,8 @@ namespace tRoot.Content.Items.Weapons.Summoner
         {
             CreateRecipe()
                 .AddIngredient(ItemID.Smolstar)
-                .AddIngredient(ItemID.LunarBar, 50)
+                .AddIngredient(ItemID.FlyingKnife)
+                .AddIngredient(ItemID.LunarBar, 100)
                 .AddTile(TileID.LunarCraftingStation)
                 .Register();
         }

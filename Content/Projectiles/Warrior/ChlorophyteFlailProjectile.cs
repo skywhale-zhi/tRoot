@@ -95,7 +95,7 @@ namespace tRoot.Content.Projectiles.Warrior
 
             float unusedRetractAcceleration = 1f; //未使用的回缩加速度
             float unusedMaxRetractSpeed = 14f; // 未使用的最大收回速度
-            int unusedChainLength = 60; //未使用的链条长度
+            //int unusedChainLength = 60; //未使用的链条长度
 
             int defaultHitCooldown = 10; // 当链家躺在地上或缩回时，连枷撞击的频率有多高
             int spinHitCooldown = 20; // 旋转时连枷撞击的频率
@@ -207,7 +207,7 @@ namespace tRoot.Content.Projectiles.Warrior
                             {
                                 for (int i = -2; i < 3; i++)
                                 {
-                                    int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 3 * i), 227, Projectile.damage / 3, 0, Main.myPlayer);
+                                    int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 3 * i), ProjectileID.CrystalLeafShot, Projectile.damage / 3, 0, Main.myPlayer);
                                     Projectile p = Main.projectile[index];
                                     p.usesLocalNPCImmunity = true;
                                     p.localNPCHitCooldown = 10;
@@ -232,7 +232,7 @@ namespace tRoot.Content.Projectiles.Warrior
                             {
                                 for (int i = -4; i < 5; i++)
                                 {
-                                    int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 4.8 * i), 227, (int)(Projectile.damage * 0.5f), 0, Main.myPlayer);
+                                    int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 4.8 * i), ProjectileID.CrystalLeafShot, (int)(Projectile.damage * 0.5f), 0, Main.myPlayer);
                                     Projectile p = Main.projectile[index];
                                     p.usesLocalNPCImmunity = true;
                                     p.localNPCHitCooldown = 8;
@@ -391,7 +391,7 @@ namespace tRoot.Content.Projectiles.Warrior
                         {
                             for (int i = -3; i < 3; i++)
                             {
-                                int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 3 * i), 227, Projectile.damage / 4, 0, Main.myPlayer);
+                                int index = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity.RotatedBy(MathHelper.Pi / 3 * i), ProjectileID.CrystalLeafShot, Projectile.damage / 4, 0, Main.myPlayer);
                                 Projectile p = Main.projectile[index];
                                 p.usesLocalNPCImmunity = true;
                                 p.localNPCHitCooldown = 10;
@@ -634,6 +634,18 @@ namespace tRoot.Content.Projectiles.Warrior
         }
 
 
+        public override void Load()
+        {
+            chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
+            chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath); //此纹理和相关代码是可选的，用于实现独特的效果
+        }
+        public override void Unload()
+        {
+            chainTexture = null;
+            chainTextureExtra = null;
+        }
+        private static Asset<Texture2D> chainTexture;
+        private static Asset<Texture2D> chainTextureExtra;
         // PreDraw用于在正常绘制投射物之前绘制链和轨迹。
         public override bool PreDraw(ref Color lightColor)
         {
@@ -641,9 +653,6 @@ namespace tRoot.Content.Projectiles.Warrior
 
             //这修复了vanilla GetPlayerArmPosition错误，该错误导致链在爬坡时绘制错误。由于另一个类似的错误，连枷本身仍然不能正确牵引。一旦vanilla bug被修复，这应该被删除。
             playerArmPosition.Y -= Main.player[Projectile.owner].gfxOffY;
-
-            Asset<Texture2D> chainTexture = ModContent.Request<Texture2D>(ChainTexturePath);
-            Asset<Texture2D> chainTextureExtra = ModContent.Request<Texture2D>(ChainTextureExtraPath); //此纹理和相关代码是可选的，用于实现独特的效果
 
             Rectangle? chainSourceRectangle = null;
             // Drippler Crippler customizes sourceRectangle to cycle through sprite frames: sourceRectangle = asset.Frame(1, 6);

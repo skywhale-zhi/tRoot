@@ -87,7 +87,6 @@ namespace tRoot.Content.Items.Weapons.Shooter
         public override void AddRecipes()
         {
             CreateRecipe()
-                .AddIngredient(ItemID.PhoenixBlaster, 1)
                 .AddIngredient(ItemID.ClockworkAssaultRifle, 1)
                 .AddIngredient(ItemID.HallowedBar, 10)
                 .AddIngredient(ItemID.SoulofFright, 20)

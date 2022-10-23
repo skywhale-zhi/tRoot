@@ -39,15 +39,10 @@ namespace tRoot.Content.Projectiles.Summoner
             DrawOffsetX = -2;
             DrawOriginOffsetY = -5;
             DrawOriginOffsetX = 0;
-
-
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 10;
-
-
             Projectile.scale *= 1.5f;
-            Projectile.ArmorPenetration = 50;
-
+            Projectile.ArmorPenetration = 100;
             Projectile.ignoreWater = true;
             //以下是仆从武器所需的
             Projectile.friendly = true; // 仅当它在接触时对敌人造成伤害时才进行控制（稍后将详细介绍）
@@ -55,8 +50,7 @@ namespace tRoot.Content.Projectiles.Summoner
             Projectile.DamageType = DamageClass.Summon; // 声明伤害类型（造成伤害所需）
             Projectile.minionSlots = 1; // 该仆从在玩家可用仆从槽位总数中所占的槽位数量（稍后将详细介绍）
             Projectile.penetrate = -1;
-
-
+            Projectile.DamageType = DamageClass.Summon;
         }
 
         //在这里，你可以决定你的仆从是否打碎了草或罐子之类的东西
@@ -176,7 +170,7 @@ namespace tRoot.Content.Projectiles.Summoner
         private void SearchForTargets(out NPC targetnpc, Player owner, out bool foundTarget, out float distanceFromTarget, out Vector2 targetCenter)
         {
             // Starting search distance
-            distanceFromTarget = 4000 * 4000;
+            distanceFromTarget = 6000 * 6000;
             targetCenter = Projectile.position;
             foundTarget = false;
             targetnpc = null;
@@ -189,7 +183,7 @@ namespace tRoot.Content.Projectiles.Summoner
                 float between = Vector2.DistanceSquared(npc.Center, Projectile.Center);
 
                 // 合理的距离，使其不会跨越多个屏幕
-                if (between <= 4000 * 4000)
+                if (between <= 6000 * 6000)
                 {
                     distanceFromTarget = between;
                     targetCenter = npc.Center;
@@ -252,9 +246,8 @@ namespace tRoot.Content.Projectiles.Summoner
                         Projectile.rotation = direction.RotatedBy(-MathHelper.PiOver2).ToRotation();
                     }
 
-                    //冲刺打击敌怪旋转和生成粒子
+                    //冲刺打击敌怪旋转
                     Projectile.rotation = direction.RotatedBy(-MathHelper.PiOver2).ToRotation();
-                    Dust.NewDustDirect(Projectile.Center, 10, 10, DustID.MagnetSphere, 0, 0);
                 }
             }
             else
@@ -293,8 +286,8 @@ namespace tRoot.Content.Projectiles.Summoner
             }
             //精灵图指向
             Projectile.spriteDirection = (int)(Projectile.velocity.X / Math.Abs(Projectile.velocity.X));
-
         }
+
 
         //残影的绘制
         public override bool PreDraw(ref Color lightColor)
@@ -344,7 +337,7 @@ namespace tRoot.Content.Projectiles.Summoner
             {
                 armorp += 40;
             }
-            if (target.HasBuff(ModContent.BuffType<Content.Buffs.FriendlyBuffs.MixedToxinⅠ>()))
+            if (target.HasBuff(ModContent.BuffType<Buffs.MixedToxinⅠ>()))
             {
                 armorp += 20;
             }
@@ -354,20 +347,20 @@ namespace tRoot.Content.Projectiles.Summoner
             if (target.lifeRegen < 0)
             {
                 int r = -(int)(target.lifeRegen * 0.15f);
-                if (r <= 200)
+                if (r <= 300)//设置一个上限
                 {
                     damage += r;
                 }
                 else
                 {
-                    damage += 200;
+                    damage += 300;
                 }
             }
 
             //射弹自身的破甲额外奖励伤害
-            if(target.defense < 50)
+            if(target.defense < 100)
             {
-                damage += (int)((50 - target.defense) * 0.5);
+                damage += (int)(target.defense * 0.001);
             }
         }
     }

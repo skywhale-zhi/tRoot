@@ -25,7 +25,7 @@ namespace tRoot.Content.Projectiles.Master
             Projectile.hostile = false; // 伤害玩家？
             Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 3;
-            Projectile.timeLeft = 60 * 2;
+            Projectile.timeLeft = 120;
             Projectile.ignoreWater = false;
             Projectile.tileCollide = true; // 弹丸会与瓷砖碰撞吗？
             Projectile.extraUpdates = 0;
@@ -95,7 +95,6 @@ namespace tRoot.Content.Projectiles.Master
                     dust.noGravity = true;
                 }
             }
-
             return false;
         }
 
@@ -131,7 +130,7 @@ namespace tRoot.Content.Projectiles.Master
                         {
                             break;
                         }
-                        Vector2 realToNPC = AnticipatoryShooting1(Projectile.Center, npc, 20, 1);
+                        Vector2 realToNPC = tRoot.AnticipatoryShooting(Projectile.Center, npc, 20, 1);
                         #region
                         int index = 0;
                         switch (Main.rand.Next(7) + 1)
@@ -180,29 +179,6 @@ namespace tRoot.Content.Projectiles.Master
                 }
             }
             Lighting.AddLight(Projectile.Center, Color.White.ToVector3() * 0.8f);
-        }
-
-        /// <summary>
-        /// 返回对移动目标预判的射弹方向，针对匀速的预判
-        /// </summary>
-        /// <param name="pos">发射射弹的位置</param>
-        /// <param name="targetNPC">目标npc</param>
-        /// <param name="speed">射弹的速度</param>
-        /// <param name="extraUpdates">射弹的额外更新率</param>
-        /// <returns></returns>
-        public Vector2 AnticipatoryShooting1(Vector2 pos, NPC targetNPC, float speed, int extraUpdates = 0)
-        {
-            Vector2 plrToNPC = targetNPC.Center - pos;
-            float offset = plrToNPC.ToRotation();
-            // 这就是我们推出来的公式
-            float G = (plrToNPC.X * targetNPC.velocity.Y - plrToNPC.Y * targetNPC.velocity.X) / (speed * (extraUpdates + 1)) / plrToNPC.Length();
-            if (G > 1 || G < -1)
-            {
-                //Main.NewText("无法预判！");
-                return plrToNPC;
-            }
-            float realr = (float)(offset + Math.Asin(G));
-            return realr.ToRotationVector2() * speed;
         }
     }
 }

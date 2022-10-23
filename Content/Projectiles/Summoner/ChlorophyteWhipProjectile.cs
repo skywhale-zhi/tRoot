@@ -6,14 +6,14 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using tRoot.Content.Buffs.FriendlyBuffs;
+using tRoot.Content.Buffs.Whips;
 
 namespace tRoot.Content.Projectiles.Summoner
 {
     internal class ChlorophyteWhipProjectile : ModProjectile
 	{
 		private Vector2 oldDustPos = Vector2.Zero;
-		private int chargeTime = 0;
+
 		public override void SetStaticDefaults()
 		{
 			// This makes the projectile use whip collision detection and allows flasks to be applied to it.
@@ -37,6 +37,7 @@ namespace tRoot.Content.Projectiles.Summoner
             Projectile.extraUpdates = 1;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = -1;
+			Projectile.DamageType = DamageClass.SummonMeleeSpeed;
 			#endregion
 
 			//使用这些更改常规默认值（必需的）

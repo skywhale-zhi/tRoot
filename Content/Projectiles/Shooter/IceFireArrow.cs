@@ -8,10 +8,6 @@ namespace tRoot.Content.Projectiles.Shooter
 {
     public class IceFireArrow : ModProjectile
     {
-        public override void SetStaticDefaults()
-        {
-        }
-
         public override void SetDefaults()
         {
             Projectile.width = 6; // 碰撞箱宽
@@ -52,11 +48,11 @@ namespace tRoot.Content.Projectiles.Shooter
         {
             if (Main.rand.NextBool(2))
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0, 0, 0, default, 0.7f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0, 0, 0, default, 0.7f);
             }
             if (Main.rand.NextBool(2))
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 135, 0, 0, 0, default, 0.7f);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.IceTorch, 0, 0, 0, default, 0.7f);
             }
         }
 
@@ -64,8 +60,8 @@ namespace tRoot.Content.Projectiles.Shooter
         {
             for (int i = 0; i < 10; i++)
             {
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0, 0, 0, default, 1);
-                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 135, 0, 0, 0, default, 1);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0, 0, 0, default, 1);
+                Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.IceTorch, 0, 0, 0, default, 1);
             }
         }
 

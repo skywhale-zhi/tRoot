@@ -5,7 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace tRoot.Content.Buffs.FriendlyBuffs
+namespace tRoot.Content.Buffs
 {
     internal class WeaponImbueMixedToxinⅠ : ModBuff
     {
@@ -32,7 +32,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
             {
                 enable = false;
             }
-            
+
             //召唤鞭子给予效果
             public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
             {
@@ -41,7 +41,7 @@ namespace tRoot.Content.Buffs.FriendlyBuffs
                     target.AddBuff(ModContent.BuffType<MixedToxinⅠ>(), Main.rand.Next(7, 15) * 60);
                 }
             }
-            
+
             //近战给予效果
             public override void ModifyHitNPC(Item item, NPC target, ref int damage, ref float knockback, ref bool crit)
             {

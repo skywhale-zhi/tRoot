@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace tRoot.Content.Items.Consumables.Potions
 {
-	public class FlaskofMixedToxinⅠ : ModItem
+    public class FlaskofMixedToxinⅠ : ModItem
 	{
 		//混调毒素瓶
 		public override void SetStaticDefaults()
@@ -36,7 +36,7 @@ namespace tRoot.Content.Items.Consumables.Potions
 			Item.value = Item.buyPrice(gold: 10);
 			Item.buffTime = 72000;
 			//药水的buff，这个必须有，否则B键不支持
-			Item.buffType = ModContent.BuffType<Buffs.FriendlyBuffs.WeaponImbueMixedToxinⅠ>();
+			Item.buffType = ModContent.BuffType<Buffs.WeaponImbueMixedToxinⅠ>();
 			//告诉系统这个属于治疗药水类，显然这里是false，目的区分buff药水和治疗药水的区别
 			Item.potion = false;
 		}

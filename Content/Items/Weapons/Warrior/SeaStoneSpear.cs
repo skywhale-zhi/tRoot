@@ -29,7 +29,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
             Item.crit = 0;      //武器暴击，默认玩家4%
 
             Item.value = Item.sellPrice(0, 0, 50, 0);
-            Item.rare = 2;      //武器罕见度
+            Item.rare = ItemRarityID.Green;      //武器罕见度
             Item.UseSound = SoundID.Item71;  //使用发出的声音
             Item.noUseGraphic = true;   //禁止使用自身的贴图，防止把自己贴图放进去
 

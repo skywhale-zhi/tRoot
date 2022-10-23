@@ -110,14 +110,16 @@ namespace tRoot.Content.NPCs.Person_Pets
 
             for (int k = 0; k < num; k++)
             {
-                Dust.NewDust(NPC.position, NPC.width, NPC.height, 16);
+                Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Cloud);
             }
         }
 
         //是否满足了这个城镇NPC能够进城的条件。例如，爆破专家要求有炸药。
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
-        {   //遍历255个npc上限
-            for (int k = 0; k < 255; k++)
+        {
+            /*
+            //遍历255个npc上限
+            for (int k = 0; k < Main.npc.Length; k++)
             {
                 Player player = Main.player[k];
                 if (!player.active)
@@ -132,6 +134,8 @@ namespace tRoot.Content.NPCs.Person_Pets
                 }
             }
             return false;
+            */
+            return true;
         }
 
 
@@ -212,7 +216,9 @@ namespace tRoot.Content.NPCs.Person_Pets
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Warrior.SeaStoneSpear>());
             shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
             shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Shooter.WillowVineBow>());
-            shop.item[nextSlot++].value = Item.buyPrice(0, 5, 0, 0);
+            shop.item[nextSlot++].value = Item.buyPrice(0, 15, 0, 0);
+            shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Master.LethalRay>());
+            shop.item[nextSlot++].value = Item.buyPrice(0, 15, 0, 0);
 
             if (NPC.downedBoss2)
             {
@@ -222,18 +228,18 @@ namespace tRoot.Content.NPCs.Person_Pets
                 shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Tools.BanDianPickaxe>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
-                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Warrior.BloodySpinningSpear>());
-                shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
             }
             if (NPC.downedBoss3)
             {
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Pets.MiniFlower.MiniFlowerItem>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 10, 0, 0);
+                shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Warrior.BloodySpinningSpear>());
+                shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
             }
             if (Main.hardMode)
             {
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Weapons.Master.HolySwordRune>());
-                shop.item[nextSlot++].value = Item.buyPrice(0, 50, 0, 0);
+                shop.item[nextSlot++].value = Item.buyPrice(0, 20, 0, 0);
                 shop.item[nextSlot].SetDefaults(ModContent.ItemType<Items.Things.BufferBalancingAgentⅡ>());
                 shop.item[nextSlot++].value = Item.buyPrice(0, 0, 20, 0);
             }

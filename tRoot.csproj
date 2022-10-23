@@ -8,14 +8,17 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="新文件夹\**" />
+    <EmbeddedResource Remove="新文件夹\**" />
+    <None Remove="新文件夹\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Remove="Common\GlobalProjectiles\LuminiteBladeGProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\GlobalNPCs\" />
-    <Folder Include="Content\Buffs\HarmfulBuffs\" />
     <Folder Include="Content\Items\Accessories\" />
     <Folder Include="Content\Items\Armor\" />
     <Folder Include="Content\Items\Consumables\BossSummonItem\" />
@@ -25,6 +28,5 @@
     <Folder Include="Content\NPCs\Animals\" />
     <Folder Include="Content\NPCs\Monsters\" />
     <Folder Include="Content\Projectiles\Other\" />
-    <Folder Include="新文件夹\" />
   </ItemGroup>
 </Project>

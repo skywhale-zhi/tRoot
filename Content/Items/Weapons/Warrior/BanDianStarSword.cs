@@ -90,7 +90,7 @@ namespace tRoot.Content.Items.Weapons.Warrior
 		{
 			CreateRecipe()
 				.AddIngredient(ItemID.Starfury)
-                .AddRecipeGroup(nameof(ItemID.MythrilBar),10)
+                .AddRecipeGroup(nameof(ItemID.MythrilBar),8)
 				.AddIngredient(ItemID.SoulofLight,3)
 				.AddIngredient(ItemID.SoulofNight,3)
                 .AddTile(TileID.MythrilAnvil)

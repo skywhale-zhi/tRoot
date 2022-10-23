@@ -16,10 +16,6 @@ namespace tRoot.Content.Projectiles.Warrior
 
         protected virtual float HoldoutRangeMax => 260f;
 
-        public override void SetStaticDefaults()
-        {
-        }
-
         public override void SetDefaults()
         {
             //克隆矛的默认值。矛的特定值设置为宽度、高度、aiStyle、是否友好、穿透数、撞墙情况、比例、隐藏、所有者击中检查和近战。
@@ -27,9 +23,9 @@ namespace tRoot.Content.Projectiles.Warrior
             Projectile.CloneDefaults(ProjectileID.Spear);
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 30;
-            Projectile.width = 60;
-            Projectile.height = 60;
-
+            Projectile.width = 30;
+            Projectile.height = 30;
+            Projectile.DamageType = DamageClass.Melee;
         }
 
         public override bool PreAI()
@@ -79,7 +75,7 @@ namespace tRoot.Content.Projectiles.Warrior
                 Projectile.rotation += MathHelper.ToRadians(135f);
             }
 
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, ModContent.DustType<Dusts.RedStoneDust>(), 0, 0, Alpha: 0, Color.White, Scale: 1f);
+            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Blood, 0, 0, Alpha: 0, Color.White, Scale: 1f);
 
 
             return false; // Don't execute vanilla AI.
@@ -118,10 +114,10 @@ namespace tRoot.Content.Projectiles.Warrior
 
         public override void SetDefaults()
         {
-            Projectile.width = 88;
-            Projectile.height = 88;
-            DrawOffsetX = -44;
-            DrawOriginOffsetY = -44;
+            Projectile.width = 40;
+            Projectile.height = 40;
+            DrawOffsetX = -20;
+            DrawOriginOffsetY = -20;
             Projectile.penetrate = -1;
             Projectile.usesIDStaticNPCImmunity = true;
             Projectile.idStaticNPCHitCooldown = 10;
@@ -144,11 +140,11 @@ namespace tRoot.Content.Projectiles.Warrior
             if (!Main.dedServ)
                 for (int i = 0; i < 4; i++)
                 {
-                    Dust dust = Dust.NewDustDirect(Projectile.Center, 1, 1, ModContent.DustType<Dusts.RedStoneDust>(), 0, 0, Alpha: 220, Color.White, Scale: 4f);
-                    dust.velocity = dust.velocity.RotatedByRandom(MathHelper.TwoPi) * 2f;
+                    Dust dust = Dust.NewDustDirect(Projectile.Center, 1, 1, DustID.Blood, 0, 0, Alpha: 20, Color.White, Scale: 1f);
+                    //dust.velocity = dust.velocity.RotatedByRandom(MathHelper.TwoPi) * 2f;
                 }
 
-            if (Main.rand.NextBool(30))
+            if (Main.rand.NextBool(60))
             {
                 Projectile.NewProjectile(Projectile.GetSource_FromAI(), Projectile.Center, Vector2.One.RotatedByRandom(MathHelper.TwoPi) * 5f, ModContent.ProjectileType<BloodySpinningSpearProjectile3>(), (int)(Projectile.damage * 0.5f), 1, Projectile.owner);
             }
@@ -156,15 +152,13 @@ namespace tRoot.Content.Projectiles.Warrior
 
         public override void SendExtraAI(BinaryWriter writer)
         {
-            writer.Write(((Projectile.Center - Main.npc[(int)Projectile.ai[0]].Center) * 0.5f).X);
-            writer.Write(((Projectile.Center - Main.npc[(int)Projectile.ai[0]].Center) * 0.5f).Y);
+            writer.WriteVector2(((Projectile.Center - Main.npc[(int)Projectile.ai[0]].Center) * 0.5f));
             writer.Write(Main.npc[(int)Projectile.ai[0]].rotation);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
         {
-            offPos.X = reader.ReadSingle();
-            offPos.Y = reader.ReadSingle();
+            offPos = reader.ReadVector2();
             offRor = reader.ReadSingle();
         }
 
@@ -195,7 +189,7 @@ namespace tRoot.Content.Projectiles.Warrior
             Projectile.alpha = 255;
             Projectile.friendly = true;
             Projectile.hostile = false;
-            Projectile.timeLeft = 180;
+            Projectile.timeLeft = 120;
         }
 
 
@@ -213,14 +207,14 @@ namespace tRoot.Content.Projectiles.Warrior
                 if (!Main.dedServ)
                     for (int i = 0; i < 2; i++)
                     {
-                        Dust dust = Dust.NewDustDirect(Projectile.Center, 1, 1, ModContent.DustType<Dusts.RedStoneDust>(), 0, 0, Alpha: 200, Color.White, Scale: 2f);
-                        dust.velocity = dust.velocity.RotatedByRandom(MathHelper.TwoPi) * 2f;
+                        Dust dust = Dust.NewDustDirect(Projectile.Center, 1, 1, DustID.Blood, 0, 0, Alpha: 200, Color.White, Scale: 1f);
+                        dust.velocity = dust.velocity.RotatedByRandom(MathHelper.TwoPi) * 0.4f;
                     }
             }
             else if (!Main.dedServ)
             {
-                Dust dust = Dust.NewDustDirect(Projectile.Center, 1, 1, ModContent.DustType<Dusts.RedStoneDust>(), 0, 0, Alpha: 200, Color.White, Scale: 2f);
-                dust.velocity = dust.velocity.RotatedByRandom(MathHelper.TwoPi) * 2f;
+                Dust dust = Dust.NewDustDirect(Projectile.Center, 1, 1, DustID.Blood, 0, 0, Alpha: 20, Color.White, Scale: 1f);
+                dust.velocity = dust.velocity.RotatedByRandom(MathHelper.TwoPi) * 0.5f;
                 dust.velocity.X *= 0.3f;
                 dust.velocity.Y -= 2;
             }
